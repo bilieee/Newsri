@@ -9,4 +9,8 @@ class EventController extends Controller
     function tampilHome(){
         return view('home');
     }
+
+    function tampilDashboard(){
+        return view('dashboard');
+    }
 }

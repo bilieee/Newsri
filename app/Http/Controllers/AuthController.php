@@ -30,10 +30,14 @@ class AuthController extends Controller
         $data = $request->only('email', 'password');
         if(Auth::attempt($data)){
             $request->session()->regenerate();
+            if(Auth::user()->role === 'admin'){
+            return redirect()->route('admin.dashboard');
+        } else {
             return redirect()->route('home');
-        } else{
-            return redirect()->back()->with('gagal', 'Email atau password anda salah');
         }
+    } else {
+        return redirect()->back()->with('gagal', 'Email atau password anda salah');
+    }
     }
 
     function logout(){

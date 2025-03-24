@@ -17,3 +17,4 @@ Route::post('/login/submit', [AuthController::class, 'submitLogin'])->name('logi
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [EventController::class, 'tampilHome'])->name('home');
+Route::get('/dashboard', [EventController::class, 'tampilDashboard'])->name('admin.dashboard');
