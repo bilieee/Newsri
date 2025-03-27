@@ -146,8 +146,8 @@
     <header>
         <div class="nav-left">
             <nav>
-                <a href="home.html">Home</a>
-                <a href="pengajuan.html">Pengajuan Event</a>
+                <a href="{{ route('home2') }}">Home</a>
+                <a href="{{ route('submission') }}">Pengajuan Event</a>
             </nav>
         </div>
         <div class="search-container">

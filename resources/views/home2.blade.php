@@ -98,8 +98,8 @@
 <body>
     <div class="navbar">       
         <div class="nav-links">
-            <a href="Test 2.html">Home</a>
-            <a href="KodeNay.html">Pengajuan Event</a>
+            <a href="{{ route('home2') }}">Home</a>
+            <a href="{{ route('submission') }}">Pengajuan Event</a>
         </div>
         <div class="search-box">
             <input type="text" placeholder="Cari di newsri...">
