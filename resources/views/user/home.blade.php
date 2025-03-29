@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,15 +99,20 @@
 <body>
     <div class="navbar">       
         <div class="nav-links">
-            <a href="{{ route('home2') }}">Home</a>
+            <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('submission') }}">Pengajuan Event</a>
         </div>
         <div class="search-box">
             <input type="text" placeholder="Cari di newsri...">
-            <img src="{{ asset('images/profile.jpg') }}" width="20">
         </div>        
         <div class="profile-icon">
             <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
+        </div>
+        <div class="logout">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-danger btn-sm">Logout</button>
+            </form>
         </div>
     </div>
 
@@ -115,26 +121,13 @@
     </div>
 
     <div class="event-container">
-        <div class="event-box">
-            <img src="{{ asset('images/river.jpg') }}"alt="PLACEHOLDER">
-            <p>placeholder</p>
-        </div>
-        <div class="event-box">
-            <img src="{{ asset('images/wibu.jpg') }}"alt="PLACEHOLDER">
-            <p>placeholder</p>
-        </div>
-        <div class="event-box">
-            <img src="{{ asset('images/anjay.jpg') }}"alt="PLACEHOLDER">
-            <p>placeholder</p>
-        </div>
-        <div class="event-box">
-            <img src="{{ asset('images/Road.jpg') }}"alt="PLACEHOLDER">
-            <p>placeholder</p>
-        </div>
-        <div class="event-box">
-            <img src="{{ asset('images/Bann1.jpg') }}"alt="PLACEHOLDER">
-            <p>placeholder</p>
-        </div>
+        @foreach ($events as $event)
+            <div class="event-box">
+                <img src="{{ asset('storage/' . $event->pamflet) }}" alt="{{ $event->nama_event }}" width="150">
+                <p>{{ $event->nama_event }}</p>
+                <p>{{ $event->deskripsi }}</p>
+            </div>
+        @endforeach
     </div>
 
     <div class="footer">

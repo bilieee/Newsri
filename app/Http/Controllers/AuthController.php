@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     function tampilRegistrasi(){
-        return view('registrasi');
+        return view('auth.registrasi');
     }
 
     function submitRegistrasi(Request $request){
@@ -23,7 +23,7 @@ class AuthController extends Controller
     }
 
     function tampilLogin(){
-        return view('login');
+        return view('auth.login');
     }
 
     function submitLogin(Request $request){
@@ -43,12 +43,5 @@ class AuthController extends Controller
     function logout(){
         Auth::logout();
         return redirect()->route('login');
-    }
-
-    function tampilSubmission(){
-        return view('submission');
-    }
-    function tampilHome2(){
-        return view('home2');
     }
 }

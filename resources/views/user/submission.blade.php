@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengajuan Event</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -146,7 +146,7 @@
     <header>
         <div class="nav-left">
             <nav>
-                <a href="{{ route('home2') }}">Home</a>
+                <a href="{{ route('home') }}">Home</a>
                 <a href="{{ route('submission') }}">Pengajuan Event</a>
             </nav>
         </div>
@@ -154,31 +154,62 @@
             <input class="search-box" type="text" placeholder="Cari di Newsri...">
             <i class="fas fa-search"></i>
         </div>
-        <i class="fas fa-user user-icon"></i>
+        <div class="profile-icon">
+            <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
+        </div>
+        <div class="logout">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-danger btn-sm">Logout</button>
+            </form>
+        </div>
     </header>
 
     <!-- FORM PENGAJUAN EVENT -->
     <div class="form-container">
         <h2>Form Pengajuan Event</h2>
         <form id="eventForm">
-            <label for="nama">Nama</label>
-            <input type="text" id="nama" name="nama" required>
-
-            <label for="telepon">Nomor Telepon</label>
-            <input type="tel" id="telepon" name="telepon" required>
-
-            <label for="namaEvent">Nama Event</label>
-            <input type="text" id="namaEvent" name="namaEvent" required>
-
-            <label for="deskripsi">Deskripsi</label>
-            <textarea id="deskripsi" name="deskripsi" required></textarea>
-
-            <label for="pamflet">Pamflet Acara</label>
-            <input type="file" id="pamflet" name="pamflet" accept="image/*" required>
-
-            <button type="submit">Submit</button>
+            <label>Nama:</label>
+            <input type="text" id="nama" required>
+        
+            <label>Nomor Telepon:</label>
+            <input type="text" id="telepon" required>
+        
+            <label>Nama Event:</label>
+            <input type="text" id="namaEvent" required>
+        
+            <label>Deskripsi:</label>
+            <textarea id="deskripsi" required></textarea>
+        
+            <label>Pamflet (Gambar):</label>
+            <input type="file" id="pamflet" accept="image/*" required>
+        
+            <button type="button" onclick="kirimWhatsApp()">Submit ke WhatsApp</button>
         </form>
         
+        <script>
+            function kirimWhatsApp() {
+                let nama = document.getElementById("nama").value;
+                let telepon = document.getElementById("telepon").value;
+                let namaEvent = document.getElementById("namaEvent").value;
+                let deskripsi = document.getElementById("deskripsi").value;
+        
+                if (!nama || !telepon || !namaEvent || !deskripsi) {
+                    alert("Harap isi semua data!");
+                    return;
+                }
+        
+                let nomorAdmin = "6283121450782"; // Ganti dengan nomor WhatsApp penerima (tanpa "+")
+                let pesan = `Halo Admin, saya ingin mengajukan event:\n\n` +
+                            `Nama: ${nama}\n` +
+                            `Telepon: ${telepon}\n` +
+                            `Nama Event: ${namaEvent}\n` +
+                            `Deskripsi: ${deskripsi}`;
+        
+                let urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorAdmin}&text=${encodeURIComponent(pesan)}`;
+                window.open(urlWhatsApp, "_blank");
+            }
+        </script>
     </div>
 
     <!-- FOOTER -->

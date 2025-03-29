@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Events;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     function tampilHome(){
-        return view('home');
+        $events = Events::all(); // Ambil semua event dari database
+        return view('user.home', compact('events'));
     }
 
-    function tampilDashboard(){
-        return view('dashboard');
+    function tampilSubmission(){
+        return view('user.submission');
     }
 }

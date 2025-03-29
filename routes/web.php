@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
@@ -14,13 +15,17 @@ Route::post('/registrasi/submit', [AuthController::class, 'submitRegistrasi'])->
 Route::get('/login', [AuthController::class, 'tampilLogin'])->name('login');
 Route::post('/login/submit', [AuthController::class, 'submitLogin'])->name('login.submit');
 
-Route::get('/submission', [AuthController::class, 'tampilSubmission'])->name('submission');
-Route::post('/submission/submit', [AuthController::class, 'submitSubmission'])->name('submission.submit');
-
-Route::get('/home2', [AuthController::class, 'tampilHome2'])->name('home2');
-Route::post('/home2/submit', [AuthController::class, 'submitHome2'])->name('home2.submit');
+Route::get('/submission', [EventController::class, 'tampilSubmission'])->name('submission');
+Route::post('/submission/submit', [EventController::class, 'store'])->name('submission.submit');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [EventController::class, 'tampilHome'])->name('home');
-Route::get('/dashboard', [EventController::class, 'tampilDashboard'])->name('admin.dashboard');
+
+Route::get('/admin/dashboard', [AdminEventController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/tambah', [AdminEventController::class, 'tampilTambah'])->name('admin.tambah');
+Route::post('/admin/event/store', [AdminEventController::class, 'store'])->name('admin.event.store');
+Route::delete('/admin/event/delete/{id}', [AdminEventController::class, 'destroy'])->name('admin.event.delete');
+Route::get('/admin/event/edit/{id}', [AdminEventController::class, 'edit'])->name('admin.event.edit');
+Route::put('/admin/event/update/{id}', [AdminEventController::class, 'update'])->name('admin.event.update');
