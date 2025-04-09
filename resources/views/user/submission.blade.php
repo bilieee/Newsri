@@ -181,8 +181,7 @@
             <label>Deskripsi:</label>
             <textarea id="deskripsi" required></textarea>
         
-            <label>Pamflet (Gambar):</label>
-            <input type="file" id="pamflet" accept="image/*" required>
+            <p>Pamflet bisa dikirim setelah melakukan submit ke Whatsapp</p>
         
             <button type="button" onclick="kirimWhatsApp()">Submit ke WhatsApp</button>
         </form>
@@ -205,6 +204,7 @@
                             `Telepon: ${telepon}\n` +
                             `Nama Event: ${namaEvent}\n` +
                             `Deskripsi: ${deskripsi}`;
+                            `Pamflet akan saya kirim setelah ini.`;
         
                 let urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorAdmin}&text=${encodeURIComponent(pesan)}`;
                 window.open(urlWhatsApp, "_blank");
