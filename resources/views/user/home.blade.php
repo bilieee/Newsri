@@ -102,18 +102,34 @@
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('submission') }}">Pengajuan Event</a>
         </div>
-        <div class="search-box">
-            <input type="text" placeholder="Cari di newsri...">
-        </div>        
-        <div class="profile-icon">
-            <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
-        </div>
-        <div class="logout">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button class="btn btn-danger btn-sm">Logout</button>
-            </form>
-        </div>
+        
+        <form action="{{ route('home') }}" method="GET" class="search-box">
+            <input type="text" name="search" placeholder="Cari event..." value="{{ request('search') }}">
+            <button type="submit" class="btn btn-sm btn-primary ms-2">Cari</button>
+        </form>
+
+        @auth
+            <div class="profile-icon">
+                <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
+            </div>
+        @endauth
+        
+        {{-- Tampilkan tombol LOGIN jika belum login --}}
+        @guest
+            <div class="login">
+                <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Login</a>
+            </div>
+        @endguest
+    
+        {{-- Tampilkan tombol LOGOUT jika sudah login --}}
+        @auth
+            <div class="logout">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-danger btn-sm">Logout</button>
+                </form>
+            </div>
+        @endauth
     </div>
 
     <div class="banner">
@@ -121,13 +137,15 @@
     </div>
 
     <div class="event-container">
-        @foreach ($events as $event)
+        @forelse ($events as $event)
             <div class="event-box">
-                <img src="{{ asset('storage/' . $event->pamflet) }}" alt="{{ $event->nama_event }}" width="150">
-                <p>{{ $event->nama_event }}</p>
+                <img src="{{ asset('storage/' . $event->pamflet) }}" alt="{{ $event->judul }}" width="150">
+                <p>{{ $event->judul }}</p>
                 <p>{{ $event->deskripsi }}</p>
             </div>
-        @endforeach
+        @empty
+            <p>Tidak ada event yang ditemukan.</p>
+        @endforelse
     </div>
 
     <div class="footer">

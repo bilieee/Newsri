@@ -35,10 +35,13 @@
                             <label>Password</label>
                             <input type="password" name="password" class="form-control mb-2">
                             <button class="btn btn-primary">Submit Login</button>
-                            <p>Belum ada akun? Register sekarang</p>
+                            <p>Belum ada akun?<a href="{{ route('registrasi') }}">Register sekarang</a></p>
                         </form>
                         @if (session('gagal'))
                         <p class="text-danger">{{ session('gagal') }}</p>    
+                        @endif
+                        @if (session('error'))
+                        <p class="text-danger">{{ session('error') }}</p>
                         @endif
                     </div>
                 </div>

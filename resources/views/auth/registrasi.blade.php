@@ -36,6 +36,7 @@
                             <label>Password</label>
                             <input type="password" name="password" class="form-control mb-2">
                             <button class="btn btn-primary">Submit Registrasi</button>
+                            <p>Sudah punya akun?<a href="{{ route('login') }}">Login sekarang</a></p>
                         </form>
                     </div>
                 </div>

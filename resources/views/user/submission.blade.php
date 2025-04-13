@@ -216,11 +216,12 @@
     <footer>
         <div class="footer">
             <img src="{{ asset('images/logo1.jpg') }}" width="100">
-        <p>Contact me: +62 800 000 000</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <p>
+                <a href="#"><img src="{{ asset('images/InstaLogo.jpg') }}" alt="Instagram" width="40"></a>
+                <a href="#"><img src="{{ asset('images/TwittLogo.jpg') }}" alt="Twitter" width="40"></a>
+                <a href="#"><img src="{{ asset('images/FacebLogo.jpg') }}" alt="Facebook" width="40"></a>
+            </p>
+            <p>Contact me: +62 8 0000 000</p>
         </div>
     </footer>
 
