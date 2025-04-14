@@ -133,7 +133,7 @@
     </div>
 
     <div class="banner">
-       <img src="{{ asset('images/sampel1.jpg') }}" alt="Beasiswa Pertamina Sobat Bumi 2025">
+       <img src="{{ asset('images/beasiswapertamina.jpg') }}" alt="Beasiswa Pertamina Sobat Bumi 2025">
     </div>
 
     <div class="event-container">
