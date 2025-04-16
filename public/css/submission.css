@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d9eaff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* NAVBAR */
+header {
+    background: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.homesub {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #6CA6FF;
+}
+
+.profile-icon img {
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logout form {
+    margin: 0;
+}
+
+.logout button {
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+/* SEARCH BAR (jika ingin ditambahkan di submission) */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background: white;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.search-box button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: #6CA6FF;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #528CFF;
+}
+
+/* FORM CONTAINER */
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background: #bcd3f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button[type="button"] {
+    margin-top: 15px;
+    padding: 10px;
+    background: #6CA6FF;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="button"]:hover {
+    background: #528CFF;
+}
+
+/* FOOTER */
+footer {
+    background: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer img {
+    margin-bottom: 10px;
+}

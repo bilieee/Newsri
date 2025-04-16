@@ -34,7 +34,6 @@ class AdminEventController extends Controller
 
         // Simpan gambar pamflet
         $pamfletPath = $request->file('pamflet')->store('pamflet', 'public');
-
         // Simpan data ke database
         Events::create([
             'nama' => $request->nama,
@@ -44,7 +43,7 @@ class AdminEventController extends Controller
             'pamflet' => $pamfletPath,
         ]);
 
-        return redirect()->back()->with('success', 'Event berhasil diajukan');
+        return redirect()->back()->with('success', 'Event berhasil ditambahkan');
     }
 
     // Tampilkan form edit event
@@ -87,7 +86,7 @@ class AdminEventController extends Controller
         $event->update(['pamflet' => $pamfletPath]);
     }
 
-    return redirect()->route('admin.dashboard')->with('success', 'Event berhasil diperbarui');
+    return redirect()->route('admin.dashboard')->with('info', 'Event berhasil diperbarui');
     }
 
     // Hapus event
@@ -101,7 +100,7 @@ class AdminEventController extends Controller
 
         $event->delete();
 
-        return redirect()->route('admin.dashboard')->with('success', 'Event berhasil dihapus');
+        return redirect()->route('admin.dashboard')->with('delete', 'Event berhasil dihapus');
     }
 
     public function tampilTambah(){

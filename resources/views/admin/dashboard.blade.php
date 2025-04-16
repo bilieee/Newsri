@@ -17,7 +17,16 @@
             <button class="btn btn-danger">Logout</button>
         </form>
     </div>
-
+    @if (session('info'))
+        <div class="alert alert-success">
+        {{ session('info') }}
+    </div>
+    @endif
+    @if (session('delete'))
+        <div class="alert alert-success">
+        {{ session('delete') }}
+    </div>
+    @endif
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>

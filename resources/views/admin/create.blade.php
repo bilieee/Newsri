@@ -9,6 +9,11 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4">Tambah Event</h2>
+    @if (session('success'))
+        <div class="alert alert-success">
+             {{ session('success') }}
+        </div>
+    @endif
     <form action="{{ route('admin.event.store') }}" method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow">
         @csrf
         <div class="mb-3">
