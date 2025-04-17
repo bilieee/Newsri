@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-center mt-6">
         <img src="{{ asset('images/logo1.jpg') }}" width="400">
     </div>
-    <div class="container-fluid" style="background-color: #d9eaff; min-height: 40vh;">
+    <div class="container-fluid" style="background-color: #d9eaff; min-height: 50vh;">
         <div class="text-center mt-6">
     <div class="text-center mt-5">
         <h2>Registrasi Aplikasi</h2>
@@ -43,5 +43,7 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
 </body>
 </html>

@@ -8,12 +8,18 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: center; 
+    justify-content: space-around; 
     align-items: center;
     gap: 30px; 
     background: white;
     padding: 10px 20px;
     flex-wrap: wrap;
+}
+
+.navconright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links a:hover {
@@ -48,9 +54,15 @@ body {
     border-radius: 5px;
 }
 
-.profile-icon {
-    font-size: 20px;
-    cursor: pointer;
+.profile-icon img {
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logout button {
+    margin-left: 10px;
+    padding: 5px 10px;
 }
 
 .banner {

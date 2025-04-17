@@ -11,13 +11,12 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="nav-left">
+        <div class="navbar">
             <nav class= "homesub">
                 <a href="{{ route('home') }}">Home</a>
                 <a href="{{ route('submission') }}">Pengajuan Event</a>
             </nav>
+            <div class="navconright">
             <div class="profile-icon">
                 <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
             </div>
@@ -27,8 +26,8 @@
                     <button class="btn btn-danger btn-sm">Logout</button>
                 </form>
             </div>
+            </div>
         </div>
-    </header>
 
     <!-- FORM PENGAJUAN EVENT -->
     <div class="form-container">

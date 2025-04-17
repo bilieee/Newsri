@@ -7,21 +7,29 @@ body {
 }
 
 /* NAVBAR */
-header {
+/* header {
     background: white;
     padding: 10px 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;
+} */
+
+.navbar {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 30px; 
+    background: white;
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
-.nav-left {
+.navconright{
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
 }
 
 .homesub {

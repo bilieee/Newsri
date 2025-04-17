@@ -14,7 +14,7 @@
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('submission') }}">Pengajuan Event</a>
         </div>
-
+        <div class="navconright">
         @auth
             <div class="profile-icon">
                 <img src="{{ asset('images/profile.jpg') }}" alt="Profile" width="50">
@@ -38,6 +38,7 @@
             </div>
         @endauth
     </div>
+    </div>
 
     <div class="search-wrapper">
         <form action="{{ route('home') }}" method="GET" class="search-box">
@@ -53,10 +54,10 @@
                     <img src="{{ asset('images/beasiswapertamina.jpg') }}" class="d-block w-100" alt="Gambar 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('images/anjay.jpg') }}" class="d-block w-100" alt="Gambar 2">
+                    <img src="{{ asset('images/multifest.jpg') }}" class="d-block w-100" alt="Gambar 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('images/anjay2.jpg') }}" class="d-block w-100" alt="Gambar 3">
+                    <img src="{{ asset('images/mbaktutik.jpg') }}" class="d-block w-100" alt="Gambar 3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
