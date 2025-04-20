@@ -37,6 +37,11 @@
         </div>
 
         <div class="mb-3">
+            <label class="form-label">Link Event</label>
+            <input type="text" name="link" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
             <label class="form-label">Pamflet</label>
             <input type="file" name="pamflet" class="form-control">
         </div>

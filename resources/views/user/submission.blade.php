@@ -32,48 +32,23 @@
     <!-- FORM PENGAJUAN EVENT -->
     <div class="form-container">
         <h2>Form Pengajuan Event</h2>
-        <form id="eventForm">
+        <form action="{{ route('submission.submit') }}" method="POST">
+            @csrf
             <label>Nama:</label>
-            <input type="text" id="nama" required>
+            <input type="text" name="nama" required>
         
             <label>Nomor Telepon:</label>
-            <input type="text" id="telepon" required>
+            <input type="text" name="telepon" required>
         
             <label>Nama Event:</label>
-            <input type="text" id="namaEvent" required>
+            <input type="text" name="namaEvent" required>
         
             <label>Deskripsi:</label>
-            <textarea id="deskripsi" required></textarea>
-        
-            <p>Pamflet bisa dikirim setelah melakukan submit ke Whatsapp</p>
-        
-            <button type="button" onclick="kirimWhatsApp()">Submit ke WhatsApp</button>
+            <textarea name="deskripsi" required></textarea>      
+            <br>
+            <button type="submit" class="btn btn-primary w-100">Submit ke WhatsApp</button>
         </form>
         
-        <script>
-            function kirimWhatsApp() {
-                let nama = document.getElementById("nama").value;
-                let telepon = document.getElementById("telepon").value;
-                let namaEvent = document.getElementById("namaEvent").value;
-                let deskripsi = document.getElementById("deskripsi").value;
-        
-                if (!nama || !telepon || !namaEvent || !deskripsi) {
-                    alert("Harap isi semua data!");
-                    return;
-                }
-        
-                let nomorAdmin = "6283121450782"; // Ganti dengan nomor WhatsApp penerima (tanpa "+")
-                let pesan = `Halo Admin, saya ingin mengajukan event:\n\n` +
-                            `Nama: ${nama}\n` +
-                            `Telepon: ${telepon}\n` +
-                            `Nama Event: ${namaEvent}\n` +
-                            `Deskripsi: ${deskripsi}`;
-                            `Pamflet akan saya kirim setelah ini.`;
-        
-                let urlWhatsApp = `https://api.whatsapp.com/send?phone=${nomorAdmin}&text=${encodeURIComponent(pesan)}`;
-                window.open(urlWhatsApp, "_blank");
-            }
-        </script>
     </div>
 
     <!-- FOOTER -->

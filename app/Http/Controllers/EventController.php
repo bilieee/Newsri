@@ -23,4 +23,25 @@ class EventController extends Controller
     function tampilSubmission(){
         return view('user.submission');
     }
+
+    public function store(Request $request){
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'telepon' => 'required|string|max:20',
+        'namaEvent' => 'required|string|max:255',
+        'deskripsi' => 'required|string',
+    ]);
+
+    $nomorAdmin = '6283121450782';
+    $pesan = "Halo Admin, saya ingin mengajukan event:\n\n" .
+             "Nama: {$request->nama}\n" .
+             "Telepon: {$request->telepon}\n" .
+             "Nama Event: {$request->namaEvent}\n" .
+             "Deskripsi: {$request->deskripsi}\n\n" .
+             "Pamflet akan saya kirim setelah ini.";
+
+    $urlWhatsApp = "https://api.whatsapp.com/send?phone=$nomorAdmin&text=" . urlencode($pesan);
+
+    return redirect()->away($urlWhatsApp);
+    }
 }

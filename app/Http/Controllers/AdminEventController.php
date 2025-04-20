@@ -30,6 +30,7 @@ class AdminEventController extends Controller
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'pamflet' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'link' => 'required|max:255',
         ]);
 
         // Simpan gambar pamflet
@@ -41,6 +42,7 @@ class AdminEventController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'pamflet' => $pamfletPath,
+            'link' => $request->link
         ]);
 
         return redirect()->back()->with('success', 'Event berhasil ditambahkan');

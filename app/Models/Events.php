@@ -14,6 +14,7 @@ class Events extends Model
         'telepon', 
         'judul', 
         'deskripsi', 
-        'pamflet'
+        'pamflet',
+        'link'
     ];
 }
