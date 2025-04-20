@@ -16,7 +16,7 @@ body {
     flex-wrap: wrap;
 }
 
-.navconright{
+.navconright {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,12 +37,19 @@ body {
     font-weight: bold;
 }
 
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
 .search-box {
     display: flex;
     align-items: center;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 5px 10px;
+    background: white;
 }
 
 .search-box input {
@@ -65,39 +72,52 @@ body {
     padding: 5px 10px;
 }
 
+/* Container untuk menyatukan banner dan event */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .banner {
+    width: 100%;
+    max-width: 900px;
     margin: 20px auto;
-    width: 80%;
 }
 
 #bannerCarousel {
     width: 100%;
-    max-width: 800px;
-    height: 400px;
+    height: 500px; 
     border-radius: 10px;
     overflow: hidden;
-    margin: 0 auto;
+    background-color: #000;
 }
 
 #bannerCarousel .carousel-item img {
+    width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* agar gambar tidak terpotong */
+    background-color: #000;
 }
 
+
 .event-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    justify-items: center;
 }
 
 .event-box {
-    background: white;
-    width: 200px;
+    width: 220px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .event-box img {
@@ -116,17 +136,13 @@ body {
     text-decoration: none;
 }
 
-.search-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
+/* Optional responsive behavior */
+@media (max-width: 600px) {
+    .event-box {
+        width: 100%;
+    }
 
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid gray;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background: white;
+    .banner {
+        max-width: 100%;
+    }
 }

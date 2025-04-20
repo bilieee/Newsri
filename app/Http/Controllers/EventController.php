@@ -38,6 +38,7 @@ class EventController extends Controller
              "Telepon: {$request->telepon}\n" .
              "Nama Event: {$request->namaEvent}\n" .
              "Deskripsi: {$request->deskripsi}\n\n" .
+             "Link: {$request->link}\n\n" .
              "Pamflet akan saya kirim setelah ini.";
 
     $urlWhatsApp = "https://api.whatsapp.com/send?phone=$nomorAdmin&text=" . urlencode($pesan);

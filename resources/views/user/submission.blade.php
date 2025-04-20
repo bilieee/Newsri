@@ -44,7 +44,11 @@
             <input type="text" name="namaEvent" required>
         
             <label>Deskripsi:</label>
-            <textarea name="deskripsi" required></textarea>      
+            <textarea name="deskripsi" required></textarea>  
+
+            <label>Link:</label>
+            <input type="text" name="link" required>
+            
             <br>
             <button type="submit" class="btn btn-primary w-100">Submit ke WhatsApp</button>
         </form>
