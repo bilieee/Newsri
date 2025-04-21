@@ -1,9 +1,19 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #d9eaff;
     margin: 0;
     padding: 0;
     text-align: center;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    .page-wrapper {
+        flex: 1;
+    }
 }
 
 /* NAVBAR */
@@ -151,18 +161,16 @@ button[type="button"]:hover {
 }
 
 /* FOOTER */
-footer {
+.footer {
     background: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-footer a {
+.footer a {
     margin: 0 10px;
     text-decoration: none;
-}
-
-.footer img {
-    margin-bottom: 10px;
 }

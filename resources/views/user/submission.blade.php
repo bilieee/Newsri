@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <div class="page-wrapper">
 
         <div class="navbar">
             <nav class= "homesub">
@@ -49,24 +50,30 @@
             <label>Link:</label>
             <input type="text" name="link" required>
             
+            <label>Pamflet bisa dikirim setelah melakukan submit</label>
             <br>
             <button type="submit" class="btn btn-primary w-100">Submit ke WhatsApp</button>
         </form>
         
     </div>
+</div>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer">
+    <div class="footer">
+        <div>
+            <p>Contact me: +62 8 0000 000</p>
+        </div>
+        <div>
             <img src="{{ asset('images/logo1.jpg') }}" width="100">
+        </div>
+        <div>
             <p>
                 <a href="#"><img src="{{ asset('images/InstaLogo.jpg') }}" alt="Instagram" width="40"></a>
                 <a href="#"><img src="{{ asset('images/TwittLogo.jpg') }}" alt="Twitter" width="40"></a>
                 <a href="#"><img src="{{ asset('images/FacebLogo.jpg') }}" alt="Facebook" width="40"></a>
             </p>
-            <p>Contact me: +62 8 0000 000</p>
         </div>
-    </footer>
+    </div>  
 
     <script>
         document.getElementById("eventForm").addEventListener("submit", function(event) {

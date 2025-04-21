@@ -45,7 +45,7 @@
             <button type="submit" class="btn-search btn btn-sm btn-primary ms-2">Cari</button>
     </div>
 
-    <!-- Wrapper utama supaya carousel & event sejajar -->
+    <!-- Ukuran gambar untuk carousel enaknya 2560 x 1440-->
     <div class="main-content">
         <div class="banner">
             <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -86,19 +86,28 @@
                     <p>{{ $event->telepon }}</p>
                 </div>
             @empty
-                <p class="text-center">Tidak ada event yang ditemukan.</p>
+                <div class="empty-message">
+                    Tidak ada event yang ditemukan.
+                </div>
             @endforelse
         </div>
+        
     </div>
 
     <div class="footer">
-        <img src="{{ asset('images/logo1.jpg') }}" width="100">
-        <p>
-            <a href="#"><img src="{{ asset('images/InstaLogo.jpg') }}" alt="Instagram" width="40"></a>
-            <a href="#"><img src="{{ asset('images/TwittLogo.jpg') }}" alt="Twitter" width="40"></a>
-            <a href="#"><img src="{{ asset('images/FacebLogo.jpg') }}" alt="Facebook" width="40"></a>
-        </p>
-        <p>Contact me: +62 8 0000 000</p>
+        <div>
+            <p>Contact me: +62 8 0000 000</p>
+        </div>
+        <div>
+            <img src="{{ asset('images/logo1.jpg') }}" width="100">
+        </div>
+        <div>
+            <p>
+                <a href="#"><img src="{{ asset('images/InstaLogo.jpg') }}" alt="Instagram" width="40"></a>
+                <a href="#"><img src="{{ asset('images/TwittLogo.jpg') }}" alt="Twitter" width="40"></a>
+                <a href="#"><img src="{{ asset('images/FacebLogo.jpg') }}" alt="Facebook" width="40"></a>
+            </p>
+        </div>
     </div>   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> 
