@@ -27,6 +27,11 @@
         {{ session('delete') }}
     </div>
     @endif
+    @if (session('edit'))
+    <div class="alert alert-success">
+    {{ session('edit') }}
+    </div>
+    @endif
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>

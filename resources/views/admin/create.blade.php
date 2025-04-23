@@ -43,7 +43,7 @@
 
         <div class="mb-3">
             <label class="form-label">Pamflet</label>
-            <input type="file" name="pamflet" class="form-control">
+            <input type="file" name="pamflet" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Tambah Event</button>

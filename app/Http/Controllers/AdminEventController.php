@@ -88,7 +88,7 @@ class AdminEventController extends Controller
         $event->update(['pamflet' => $pamfletPath]);
     }
 
-    return redirect()->route('admin.dashboard')->with('info', 'Event berhasil diperbarui');
+    return redirect()->route('admin.dashboard')->with('edit', 'Event berhasil diperbarui');
     }
 
     // Hapus event
