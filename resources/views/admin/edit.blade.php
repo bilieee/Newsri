@@ -38,7 +38,7 @@
             <input type="file" name="pamflet" class="form-control">
             @if($event->pamflet)
                 <div class="mt-2">
-                    <img src="{{ asset('storage/' . $event->pamflet) }}" width="150" class="img-thumbnail">
+                    <img src="{{ asset($event->pamflet) }}" width="100" class="img-thumbnail">
                 </div>
             @endif
         </div>

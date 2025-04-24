@@ -52,7 +52,7 @@
                     <td>{{ $event->deskripsi }}</td>
                     <td>
                         @if ($event->pamflet)
-                            <img src="{{ asset('storage/' . $event->pamflet) }}" width="100" class="img-thumbnail">
+                        <img src="{{ asset($event->pamflet) }}" width="100" class="img-thumbnail">
                         @else
                             <span class="text-muted">Tidak ada pamflet</span>
                         @endif

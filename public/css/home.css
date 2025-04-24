@@ -111,6 +111,10 @@ body {
     justify-items: center;
 }
 
+.event-title {
+    text-decoration: none;
+}
+
 /* Tampilan kotak event */
 .event-box {
     width: 220px;

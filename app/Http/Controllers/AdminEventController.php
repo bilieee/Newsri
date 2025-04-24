@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Events;
-use Illuminate\Support\Facades\Storage;
 
 class AdminEventController extends Controller
 {
@@ -33,8 +32,11 @@ class AdminEventController extends Controller
             'link' => 'required|max:255',
         ]);
 
-        // Simpan gambar pamflet
-        $pamfletPath = $request->file('pamflet')->store('pamflet', 'public');
+        // Simpan gambar pamflet ke public/images
+        $filename = time().'_'.$request->file('pamflet')->getClientOriginalName();
+        $request->file('pamflet')->move(public_path('images'), $filename);
+        $pamfletPath = 'images/' . $filename;
+
         // Simpan data ke database
         Events::create([
             'nama' => $request->nama,
@@ -60,35 +62,38 @@ class AdminEventController extends Controller
     {
         $event = Events::findOrFail($id);
 
-    $request->validate([
-        'nama' => 'required|string|max:255',
-        'telepon' => 'required|string|max:15',
-        'judul' => 'required|string|max:255',
-        'deskripsi' => 'required|string',
-        'pamflet' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'telepon' => 'required|string|max:15',
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'pamflet' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    // Update data event
-    $event->update([
-        'nama' => $request->nama,
-        'telepon' => $request->telepon,
-        'judul' => $request->judul,
-        'deskripsi' => $request->deskripsi,
-    ]);
+        // Update data dasar
+        $event->update([
+            'nama' => $request->nama,
+            'telepon' => $request->telepon,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ]);
 
-    // Jika ada file pamflet baru, update juga
-    if ($request->hasFile('pamflet')) {
-        // Hapus pamflet lama
-        if ($event->pamflet) {
-            Storage::disk('public')->delete($event->pamflet);
+        // Jika ada file pamflet baru, update juga
+        if ($request->hasFile('pamflet')) {
+            // Hapus pamflet lama dari public/images
+            $oldPamfletPath = public_path($event->pamflet);
+            if (file_exists($oldPamfletPath)) {
+                unlink($oldPamfletPath);
+            }
+
+            // Simpan pamflet baru
+            $filename = time().'_'.$request->file('pamflet')->getClientOriginalName();
+            $request->file('pamflet')->move(public_path('images'), $filename);
+            $pamfletPath = 'images/' . $filename;
+            $event->update(['pamflet' => $pamfletPath]);
         }
 
-        // Simpan pamflet baru
-        $pamfletPath = $request->file('pamflet')->store('pamflet', 'public');
-        $event->update(['pamflet' => $pamfletPath]);
-    }
-
-    return redirect()->route('admin.dashboard')->with('edit', 'Event berhasil diperbarui');
+        return redirect()->route('admin.dashboard')->with('edit', 'Event berhasil diperbarui');
     }
 
     // Hapus event
@@ -96,8 +101,12 @@ class AdminEventController extends Controller
     {
         $event = Events::findOrFail($id);
 
+        // Hapus file pamflet dari public/images jika ada
         if ($event->pamflet) {
-            Storage::disk('public')->delete($event->pamflet);
+            $pamfletPath = public_path($event->pamflet);
+            if (file_exists($pamfletPath)) {
+                unlink($pamfletPath);
+            }
         }
 
         $event->delete();
@@ -105,8 +114,8 @@ class AdminEventController extends Controller
         return redirect()->route('admin.dashboard')->with('delete', 'Event berhasil dihapus');
     }
 
-    public function tampilTambah(){
+    public function tampilTambah()
+    {
         return view('admin.create');
     }
 }
-

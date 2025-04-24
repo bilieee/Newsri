@@ -75,7 +75,7 @@
         <div class="event-container">
             @forelse ($events as $event)
                 <div class="event-box">
-                    <img src="{{ asset('storage/' . $event->pamflet) }}" alt="{{ $event->judul }}" class="event-image">
+                    <img src="{{ asset(  $event->pamflet) }}" alt="{{ $event->judul }}" class="event-image">
                     <p>
                         <a href="{{ $event->link }}" target="_blank" class="event-title">
                             {{ $event->judul }}
