@@ -59,7 +59,7 @@
                             style="height: 100%; object-fit: contain; background-color: #000;" alt="Gambar 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/mbaktutik.jpg') }}" class="d-block w-100"
+                        <img src="{{ asset('images/maba.jpg') }}" class="d-block w-100"
                             style="height: 100%; object-fit: contain; background-color: #000;" alt="Gambar 3">
                     </div>
                 </div>

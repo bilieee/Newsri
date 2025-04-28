@@ -1,3 +1,4 @@
+/* General */
 body {
     font-family: Arial, sans-serif;
     background-color: #d9eaff;
@@ -6,11 +7,12 @@ body {
     text-align: center;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
     align-items: center;
-    gap: 30px; 
+    gap: 30px;
     background: white;
     padding: 10px 20px;
     flex-wrap: wrap;
@@ -20,10 +22,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.nav-links a:hover {
-    color: #6CA6FF;
 }
 
 .nav-links {
@@ -37,6 +35,11 @@ body {
     font-weight: bold;
 }
 
+.nav-links a:hover {
+    color: #6CA6FF;
+}
+
+/* Search */
 .search-wrapper {
     display: flex;
     justify-content: center;
@@ -61,6 +64,7 @@ body {
     border-radius: 5px;
 }
 
+/* Profile and Logout */
 .profile-icon img {
     width: 50px;
     border-radius: 50%;
@@ -72,13 +76,14 @@ body {
     padding: 5px 10px;
 }
 
-/* Container untuk menyatukan banner dan event */
+/* Main Content */
 .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Banner */
 .banner {
     width: 100%;
     max-width: 900px;
@@ -87,7 +92,7 @@ body {
 
 #bannerCarousel {
     width: 100%;
-    height: 500px; 
+    height: 500px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #000;
@@ -96,15 +101,15 @@ body {
 #bannerCarousel .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* agar gambar tidak terpotong */
+    object-fit: contain;
     background-color: #000;
 }
 
-/* Event grid */
+/* Event Grid */
 .event-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* memastikan 3 kolom */
+    gap: 50px; /* Menambah jarak antar event box */
     max-width: 900px;
     margin: 30px auto;
     padding: 0 20px;
@@ -115,14 +120,39 @@ body {
     text-decoration: none;
 }
 
-/* Tampilan kotak event */
+/* Event Box */
 .event-box {
-    width: 220px;
-    padding: 10px;
-    border-radius: 10px;
+    width: 100%; /* 100% untuk mengisi ruang di dalam grid */
+    max-width: 280px; /* Pastikan event box tidak lebih besar dari 280px */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
     background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Responsif untuk tampilan lebih kecil (misalnya tablet atau mobile) */
+@media (max-width: 768px) {
+    .event-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom per baris di layar lebih kecil */
+        gap: 20px; /* Sesuaikan jarak antar event */
+    }
+}
+
+@media (max-width: 480px) {
+    .event-container {
+        grid-template-columns: 1fr; /* 1 kolom per baris di layar sangat kecil (mobile) */
+        gap: 15px;
+    }
+}
+.event-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .event-box img {
@@ -154,12 +184,62 @@ body {
 }
 
 /* Responsif */
-@media (max-width: 600px) {
-    .event-box {
-        width: 100%;
-    }
 
-    .banner {
-        max-width: 100%;
+/* Navbar di layar kecil */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Search bar di layar kecil */
+@media (max-width: 600px) {
+    .search-wrapper {
+        flex-direction: column;
+    }
+    .search-box {
+        width: 80%;
+    }
+    .btn-search {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+
+/* Banner carousel di layar kecil */
+@media (max-width: 768px) {
+    #bannerCarousel {
+        height: 300px;
+    }
+    #bannerCarousel .carousel-inner {
+        height: 300px;
+    }
+}
+
+/* Event grid di layar kecil */
+@media (max-width: 768px) {
+    .event-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer di layar kecil */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
     }
 }
