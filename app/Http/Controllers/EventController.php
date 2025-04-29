@@ -29,6 +29,7 @@ class EventController extends Controller
         'nama' => 'required|string|max:255',
         'telepon' => 'required|string|max:20',
         'namaEvent' => 'required|string|max:255',
+        'link' => 'required',
         'deskripsi' => 'required|string',
     ]);
 
